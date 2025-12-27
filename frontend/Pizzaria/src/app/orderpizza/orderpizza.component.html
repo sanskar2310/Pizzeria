@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 mb-4" *ngFor="let pizza of pizzas">
+      <div class="card border-0 h-100">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <h5 class="card-title">{{ pizza.name }}</h5>
+            <img src="../assets/nonveg.png" alt="Non-Veg Icon" width="20" height="20" *ngIf="pizza.type !== 'veg'">
+            <img src="../assets/veg.png" alt="Veg Icon" width="20" height="20" *ngIf="pizza.type === 'veg'">
+            <p class="card-text"><strong>Price: ₹{{ pizza.price }}</strong></p>
+          </div>
+          <div class="col-md-5">
+            <div class="card-body">
+              <p class="card-text">{{ pizza.description }}</p>
+              <p class="card-text">
+                <strong>Ingredients:</strong> {{ getIngredients(pizza.ingredients) }}
+                <br><br>
+                <strong>Toppings:</strong> {{ getToppings(pizza.topping) }}
+              </p>
+            </div>
+          </div>
+          <div class="col-md-3 d-flex flex-column justify-content-between">
+            <img [src]="pizza.image" alt="{{ pizza.name }}" class="img-fluid rounded-start pizza-img" />
+          </div>
+        </div>
+        <div class="button-class">
+          <button (click)="addtocart(pizza)" class="btn btn-warning text-white fw-bold">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

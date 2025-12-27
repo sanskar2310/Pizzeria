@@ -1,0 +1,53 @@
+<div class="cart-container">
+  <h2>Your Shopping Cart</h2>
+  <div *ngIf="cartlist.length > 0; else emptyCart">
+    <div class="cart-item" *ngFor="let item of cartlist; let i = index">
+      <div class="item-details row g-0">
+        <div class="col-md-4">
+          <h5 class="card-title">{{ item.name }}</h5>
+          <img src="../assets/nonveg.png" alt="Non-Veg Icon" width="20" height="20" *ngIf="item.type !== 'veg'">
+          <img src="../assets/veg.png" alt="Veg Icon" width="20" height="20" *ngIf="item.type === 'veg'">
+          <p class="card-text"><strong>Price: {{ item.price | currency: 'INR' }}</strong></p>
+          <div class="quantity-container">
+            <p><strong>Quantity:</strong></p>
+            <div class="quantity-btns">
+              <button class="quantity-btn" (click)="decrementQuantity(item)" [disabled]="item.quantity <= 1">-</button>
+              <span>{{ item.quantity || 1 }}</span>
+              <button class="quantity-btn" (click)="incrementQuantity(item)">+</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-5">
+          <div class="card-body">
+            <p class="card-text">{{ item.description }}</p>
+          </div>
+          <br>
+          <div *ngIf="item.selectedTopping && item.selectedTopping.length > 0">
+            <h5>Extra Toppings:</h5>
+            <ul>
+              <li *ngFor="let topping of ensureSelectedToppingIsArray(item)">
+                {{ topping.tname }} - {{ topping.price | currency: 'INR'}}
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-3 d-flex flex-column justify-content-between">
+          <img [src]="item.image" alt="{{ item.name }}" class="img-fluid pizza-img" />
+        </div>
+      </div>
+      <div class="item-total">
+        <p><strong>Total Price:</strong> {{ calculateTotalPrice(item) | currency: 'INR' }}</p>
+      </div>
+      <div class="remove-item">
+        <button class="remove-btn" (click)="removeItemFromCart(item)">Remove</button>
+      </div>
+    </div>
+    <div class="cart-summary">
+      <h3><strong>Total Price:</strong> {{ totalprice | currency: 'INR' }}</h3>
+      <button class="checkout-button">Proceed to Checkout</button>
+    </div>
+  </div>
+  <ng-template #emptyCart>
+    <p class="empty-cart-message">Your cart is empty. Add items to your cart to view them here!</p>
+  </ng-template>
+</div>

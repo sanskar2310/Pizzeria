@@ -1,0 +1,64 @@
+http:
+  port: 9000
+admin:
+  port: 9876
+  host: localhost
+apiEndpoints:
+  pizzas:
+    pathRegex: '^/pizzas'
+  toppings:
+    pathRegex: '^/toppings'
+  cart:
+    pathRegex: '^/cart'
+serviceEndpoints:
+  pizzas:
+    url: 'http://localhost:3001'
+  toppings:
+    url: 'http://localhost:3002'
+  cartlist:
+    url: 'http://localhost:3003'
+  addtocart:
+    url: 'http://localhost:3003'
+  deletefromcart:
+    url: 'http://localhost:3003/cartlist'
+  updatecart:
+    url: 'http://localhost:3003/cartlist'
+policies:
+  - basic-auth
+  - cors
+  - expression
+  - key-auth
+  - log
+  - oauth2
+  - proxy
+  - rate-limit
+pipelines:
+  pizzas:
+    apiEndpoints:
+      - pizzas
+    policies:
+      - proxy:
+          - action:
+              serviceEndpoint: pizzas
+
+  toppings:
+    apiEndpoints:
+      - toppings
+    policies:
+      - proxy:
+          - action:
+              serviceEndpoint: toppings
+
+  cart:
+    apiEndpoints:
+      - cart
+    policies:
+      - proxy:
+          - action:
+              serviceEndpoint: cartlist
+          - action:
+              serviceEndpoint: addtocart
+          - action:
+              serviceEndpoint: deletefromcart
+          - action:
+              serviceEndpoint: updatecart

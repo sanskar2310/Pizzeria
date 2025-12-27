@@ -1,0 +1,70 @@
+.container {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+.card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.993);
+  height: 100%;
+}
+
+.pizza-img {
+  object-fit: contain;
+  border-radius: 8px 0 0 8px;
+  height: 200px;
+  width: 100%;
+}
+
+.card-body {
+  padding: 10px 15px;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #151414;
+  margin-bottom: 10px;
+}
+
+.card-text {
+  font-size: 0.9rem;
+  color: #0b0b0b;
+}
+
+.row {
+  padding: 15px;
+}
+
+.col-md-3 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.button-class {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  width: auto;
+}
+
+.btn {
+  width: auto;
+  padding: 8px 16px;
+  font-size: 0.9rem;
+}
+
+.btn-warning {
+  background-color: #ff6f00;
+  border: none;
+  color: #fff;
+}
+
+.btn-warning:hover {
+  background-color: #622904;
+}

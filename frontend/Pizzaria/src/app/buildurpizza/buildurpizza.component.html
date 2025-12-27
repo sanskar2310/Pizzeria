@@ -1,0 +1,30 @@
+<div class="container">
+  <h4 class="mb-4">Pizzeria now gives you options to build your own pizza. Customize your pizza by choosing toppings from the list below.</h4>
+  <table class="table table-bordered align-middle text-center">
+    <thead class="table-light">
+      <tr>
+        <th>Image</th>
+        <th>Topping</th>
+        <th>Price</th>
+        <th>Add</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let topping of toppings">
+        <td>
+          <img [src]="topping.image" alt="{{ topping.tname }}" class="topping-img" />
+        </td>
+        <td>{{ topping.tname }}</td>
+        <td>₹{{ topping.price }}</td>
+        <td>
+          <input type="checkbox" 
+                 [(ngModel)]="topping.selected" 
+                 (change)="updatetopTotalPrice()" 
+                 [value]="topping.price" />
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="mt-4"><strong>Total Cost:</strong> ₹{{ totalprice }}</h5>
+  <button class="btn btn-warning text-dark fw-bold mt-3" (click)="buildPizza()">Build Your Own Pizza</button>
+</div>
