@@ -4,26 +4,26 @@ Pizzeria is a full-stack food ordering web application built using the MEAN stac
 
 🚀 Key Features
 
-Dynamic pizza menu with detailed descriptions, ingredients, and images
+->Dynamic pizza menu with detailed descriptions, ingredients, and images
 
-Customizable toppings and quantity selection
+->Customizable toppings and quantity selection
 
-Cart management (add, update, remove items)
+->Cart management (add, update, remove items)
 
-MongoDB-based cart storage using Mongoose schemas
+->MongoDB-based cart storage using Mongoose schemas
 
-RESTful APIs built with Node.js and Express.js
+->RESTful APIs built with Node.js and Express.js
 
-Responsive UI developed with Angular
+->Responsive UI developed with Angular
 
-Clean separation of frontend and backend concerns
+->Clean separation of frontend and backend concerns
 
 🛠 Tech Stack
 
-Frontend: Angular, HTML, CSS, TypeScript
+->Frontend: Angular, HTML, CSS, TypeScript
 
-Backend: Node.js, Express.js
+->Backend: Node.js, Express.js
 
-Database: MongoDB (Mongoose ODM)
+->Database: MongoDB (Mongoose ODM)
 
-Architecture: REST API, MVC-inspired structure
+->Architecture: REST API, MVC-inspired structure
